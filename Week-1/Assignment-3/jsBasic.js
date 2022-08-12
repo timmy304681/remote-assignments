@@ -37,7 +37,7 @@ let input1 = ['a', 'b', 'c', 'a', 'c', 'a', 'c'];
 
 
 console.log(countAandB(input1)); // should print 4 (3 ‘a’ letters and 1 ‘b’ letter)
-console.log(toNumber(input1); // should print [1, 2, 3, 1, 3, 1, 3]
+console.log(toNumber(input1)); // should print [1, 2, 3, 1, 3, 1, 3]
 
 let input2 = ['e', 'd', 'c', 'd', 'e'];
 
