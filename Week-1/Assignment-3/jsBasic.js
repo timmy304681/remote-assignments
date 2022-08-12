@@ -1,28 +1,28 @@
 /* Function */
 
 function countAandB(input) {
-    let countA= 0;
-    let countB= 0;
-    for (let i = 0; i < input.length ; i++){
-        if (! input[i].match(/^(a|b|c|d|e)$/)){  //check input using Regular Expressions
+    let countA = 0;
+    let countB = 0;
+    for (let i = 0; i < input.length ; i++) {
+        if (! input[i].match(/^(a|b|c|d|e)$/)) {  //check input using Regular Expressions
             return "Error: Only get ‘a’, ‘b’, ‘c’, ‘d’, or ‘e’ in the input array";
-        }else if (input[i] =="a"){
+        } else if (input[i] =="a") {
             countA += 1;
-        }else if (input[i] =="b") {
+        } else if (input[i] =="b") {
             countB += 1;
         }
     }
-    return countA+countB;
+    return countA + countB;
 }
 
 
 function toNumber(input) {
-    let out=[];
+    let out = [];
     for (let i = 0; i < input.length ; i++) {
-        if (! input[i].match(/^(a|b|c|d|e)$/)){  //check input, using Regular Expressions
+        if (! input[i].match(/^(a|b|c|d|e)$/)) {  //check input, using Regular Expressions
             return "Error: Only get ‘a’, ‘b’, ‘c’, ‘d’, or ‘e’ in the input array";
-        }else{
-            let num= input[i].charCodeAt() - 96;  //string.charCodeAt() , UTF-16, a equal 97
+        } else {
+            let num = input[i].charCodeAt() - 96;  //string.charCodeAt() , UTF-16, a equal 97
             out.push(num);
         }
     }
