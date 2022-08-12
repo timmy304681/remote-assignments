@@ -1,17 +1,18 @@
 /* Function */
+
 function countAandB(input) {
-	let countA= 0;
-	let countB= 0;
-	for (let i = 0; i < input.length ; i++){
-  	    if (! input[i].match(/^(a|b|c|d|e)$/)){  //check input using Regular Expressions
-    	    return "Error: Only get ‘a’, ‘b’, ‘c’, ‘d’, or ‘e’ in the input array";
-   	    }else if (input[i] =="a"){
-   		    countA += 1;
-   	    }else if (input[i] =="b") {
-   		    countB += 1;
+    let countA= 0;
+    let countB= 0;
+    for (let i = 0; i < input.length ; i++){
+        if (! input[i].match(/^(a|b|c|d|e)$/)){  //check input using Regular Expressions
+            return "Error: Only get ‘a’, ‘b’, ‘c’, ‘d’, or ‘e’ in the input array";
+        }else if (input[i] =="a"){
+            countA += 1;
+        }else if (input[i] =="b") {
+            countB += 1;
         }
-	}
-	return countA+countB;
+    }
+    return countA+countB;
 }
 
 
