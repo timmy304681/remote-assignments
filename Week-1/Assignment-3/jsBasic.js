@@ -22,7 +22,7 @@ function toNumber(input) {
         if (! input[i].match(/^(a|b|c|d|e)$/)){  //check input, using Regular Expressions
             return "Error: Only get ‘a’, ‘b’, ‘c’, ‘d’, or ‘e’ in the input array";
         }else{
-            let num= input[i].charCodeAt() - 96;
+            let num= input[i].charCodeAt() - 96;  //string.charCodeAt() , UTF-16, a equal 97
             out.push(num);
         }
     }
