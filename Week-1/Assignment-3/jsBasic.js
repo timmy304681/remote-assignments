@@ -25,7 +25,7 @@ function toNumber(input) {
             let num = input[i].charCodeAt() - 96;  //string.charCodeAt() , UTF-16, a equal 97
             /* another method (小賴提供)
             const base = 'a'.charCodeAt() - 1;
-            const num = input[i].charCodeAt() - base
+            const num = input[i].charCodeAt() - base;
             */
             out.push(num);
         }
