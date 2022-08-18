@@ -1,0 +1,92 @@
+/* ================================= 
+  Base Element Styles
+==================================== */
+
+/* Default body margin is 8px , so need to reset to 0 */
+* {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+header {
+    background-color: #EEEEEE;
+    padding: 20px 0;
+}
+
+h1,
+.item{
+    padding:0 20px;
+    font-size: 20px;
+    font-weight:normal;
+}
+
+
+#welcome {
+    background-color: #CFDCEC;
+    margin: 0px;
+    font-size: 50px;
+    padding:100px 0 ;
+    font-weight:bold;
+}
+
+.section-title{
+    padding:20px 0;
+    font-weight:bold;
+    font-size: 30px;
+}
+
+
+.content-box{
+    background-color: #8B98A8;
+    padding-bottom: 100px;
+    margin: 5px;
+}
+
+.btn-toggle{
+    background-color: #E0EDFD; 
+    font-size: 20px;
+    padding: 10px;
+    width: max-content;
+    margin:10px auto;
+}
+
+
+/*================================= 
+  Flex box
+==================================== */
+.main-header, 
+.menu,
+.content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.main-header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.content{
+    justify-content:space-between;
+    
+}
+
+.content-box{
+    flex : 40%;
+    
+}
+
+
+
+
+@media screen and (min-width:1200px){
+.content{
+    width: 1200px;
+    margin:auto;
+}
+}
