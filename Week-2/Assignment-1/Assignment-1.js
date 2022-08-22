@@ -1,7 +1,7 @@
 function max(numbers) {
     let max = numbers[0];
-    for ( let i = 0; i < numbers.length; i++ ){
-        if ( numbers[i] > max ){
+    for ( let i = 0; i < numbers.length; i++ ) {
+        if ( numbers[i] > max ) {
             max = numbers[i];
         }
     }
@@ -11,16 +11,14 @@ function max(numbers) {
 
 
 function findPosition(numbers, target) {
-    if ( numbers.includes(target) ){                 // CHECK : The includes() method returns "true" if an array contains a specified value.
-        for ( let i = 0; i < numbers.length; i++ ){
-            if ( numbers[i] === target ){
-                position = i;
-                return position;  // will return the first position, then stop the loop
-            }
+    let position = -1;
+    for ( let i = 0; i < numbers.length; i++ ) {
+        if ( numbers[i] === target ) {
+            position = i;
+            return position;
         }
-    } else {
-        return -1; // if not find the target, return -1
     }
+    return position;
 }
 
 
