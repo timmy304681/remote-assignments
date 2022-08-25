@@ -2,13 +2,14 @@
 const express = require("express");
 const app = express();
 const cookieParser = require("cookie-parser");
-// parse application
 
+// parse application
 app.use(cookieParser());
 
 // using pug
 app.set("view engine", "pug");
 
+// create an api to caclulate
 app.get("/data", (req, res) => {
   // check if query exit
   if (req.query.number) {
@@ -27,10 +28,10 @@ app.get("/data", (req, res) => {
   }
 });
 
-// Serving static files in Express
+// Serving static files by express.static()
 app.use(express.static("public"));
 
-// myName
+// get request from /myName, if no cookies then render myName.pug
 app.get("/myName", (req, res) => {
   const name = req.cookies.name;
   if (name) {
@@ -40,12 +41,12 @@ app.get("/myName", (req, res) => {
   }
 });
 
-// get request can get query string
+// get request from /trackName, can get query string
 app.get("/trackName", (req, res) => {
   console.log(req.query.name);
   res.cookie("name", req.query.name);
   res.redirect("/myName");
 });
 
-// set port 3000
+// set port to 3000
 app.listen(3000);
