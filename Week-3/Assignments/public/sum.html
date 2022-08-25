@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Week-3 Assignment</title>
+  </head>
+  <body>
+    <h1>Assignment 3-3 : Result of 1+2+....+10 :</h1>
+    <h2 id="result"></h2>
+
+    <h1>Assignment 3-4 : Enter a number and get results :</h1>
+
+    <label> Please enter the number: </label>
+    <input type="text" id="inputNumber" />
+    <button type="submit" id="sumitButton">Sumit</button>
+
+    <h2 id="enterResult"></h2>
+    <script>
+      // make an HTTP request by AJAX
+      const request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        if (request.readyState === 4) {
+          document.getElementById("result").innerHTML = request.responseText;
+        }
+      };
+      request.open("GET", "data?number=10");
+      request.send();
+
+      // click event and using index.js api to calculate
+      document.getElementById("sumitButton").addEventListener("click", () => {
+        const inputNumber = document.getElementById("inputNumber").value;
+
+        const requestNumber = new XMLHttpRequest();
+        requestNumber.onreadystatechange = function () {
+          if (requestNumber.readyState === 4) {
+            document.getElementById("enterResult").innerHTML =
+              requestNumber.responseText;
+          }
+        };
+
+        requestNumber.open("GET", "data?number=" + inputNumber);
+        requestNumber.send();
+      });
+    </script>
+  </body>
+</html>

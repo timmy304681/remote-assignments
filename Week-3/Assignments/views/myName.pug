@@ -1,0 +1,12 @@
+doctype html
+html(lang='en')
+  head
+    title myName
+  body
+  if name
+    h1 #{name}
+  else  
+    form(action="/trackName",method="get")
+      label Please enter your name: 
+        input(type="text",name="name")
+      button(type="submit") Submit
