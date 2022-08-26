@@ -9,6 +9,11 @@ app.use(cookieParser());
 // using pug
 app.set("view engine", "pug");
 
+// welcome page
+app.get("/", (req, res) => {
+  res.send("<h1>Hello, My Server!</h1>");
+});
+
 // create an api to caclulate
 app.get("/data", (req, res) => {
   // check if query exit

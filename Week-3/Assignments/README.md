@@ -28,6 +28,8 @@ Now, try to modify your code executed on the server-side to build a simple API. 
 5. handle HTTP GET method and parameters with Node.js and Express on the server-side.
 6. (Optional) Think about what will happen when N is very large.
 
+---
+
 # Assignment 3: Connect to Backend API by AJAX
 
 You have built your first API in the backend, then let’s get back to the front-end. Follow the steps below to send an HTTP request to your backend API by AJAX.
