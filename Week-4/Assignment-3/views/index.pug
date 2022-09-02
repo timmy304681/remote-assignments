@@ -1,0 +1,28 @@
+doctype html
+html(lang='en')
+  head
+    title sign-up & sign-in
+  body
+  h1 Don't have an account yet? Please sign-up
+  form(action="/sign-up",method="post")
+      label Please enter your email and password: 
+      br
+      p Email: 
+      input(type="text",name="email")
+      p Password: 
+      input(type="text",name="password")
+      button(type="submit") Submit
+      if signUpError
+        h2 Warning!! This email address is already being registered!! Or you input invalid email address or password!!
+  br
+  h1 Sign-in
+  form(action="/sign-in",method="post")
+      label Please enter your email and password: 
+      br
+      p Email: 
+      input(type="text",name="email")
+      p Password: 
+      input(type="text",name="password")
+      button(type="submit") Submit
+      if signInError
+        h2 Warning!! You entered an incorrect email or password!!
