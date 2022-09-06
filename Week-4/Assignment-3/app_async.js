@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.set("view engine", "pug");
 
 // welcome page
-app.get("/", (req, res) => {
+app.get("/", async (req, res) => {
   res.render("index");
 });
 
@@ -28,11 +28,12 @@ function checkEmail(email) {
   }
 }
 
-function insertSQL(sql, post) {
+function insertSQL(sql, post, res) {
   conn.query(sql, post, (err, results) => {
     if (err) throw err;
     console.log(results);
   });
+  res.redirect("/member");
 }
 
 /** main **/
@@ -57,7 +58,7 @@ app.get("/createDBTable", async (req, res) => {
     "CREATE TABLE assignment.user(id int AUTO_INCREMENT, email VARCHAR(255), password VARCHAR(255) , PRIMARY key(id));";
   // Column id should be a primary key and increase automatically
 
-  conn.query(sql_table, (err, results) => {
+  conn.query(sql_table, async (err, results) => {
     if (err) throw err;
     console.log(results);
   });
@@ -74,7 +75,7 @@ app.post("/sign-up", async (req, res) => {
 
   const sqlFind = `SELECT email FROM assignment.user WHERE email = "${email}"`;
 
-  conn.query(sqlFind, (err, results) => {
+  conn.query(sqlFind, async (err, results) => {
     /* check three conditions
     1. If the email is already in the database.
     2. If the email is valid.
@@ -82,13 +83,13 @@ app.post("/sign-up", async (req, res) => {
     */
     if (results.length === 0 && emailValid && password) {
       // insert user email and passport to MySQL
-      const sql = "INSERT INTO assignment.user SET ?";
+
       const post = {
         email: `${email}`,
         password: `${password}`,
       };
-
-      insertSQL(sql, post);
+      const sql = "INSERT INTO assignment.user SET ?";
+      await insertSQL(sql, post, res);
     } else {
       const signUpError = true;
       res.render("index", { signUpError });
@@ -103,7 +104,7 @@ app.post("/sign-in", async (req, res) => {
 
   const sqlFind = `SELECT email FROM assignment.user WHERE email = "${email}" AND password ="${password}"`;
 
-  conn.query(sqlFind, (err, results) => {
+  conn.query(sqlFind, async (err, results) => {
     if (results.length === 1) {
       res.redirect("/member");
     } else {
@@ -113,10 +114,10 @@ app.post("/sign-in", async (req, res) => {
   });
 });
 
-app.get("/member", (req, res) => {
+app.get("/member", async (req, res) => {
   res.render("member");
 });
 
-app.listen("3000", () => {
+app.listen("3000", async () => {
   console.log("Server started  on port 3000");
 });
